@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vojta/CLionProjects/BcProject/fitness_functions.h
+parameters.h
+/home/vojta/CLionProjects/BcProject/parameters.h
+
+/home/vojta/CLionProjects/BcProject/helper_functions.h
+stdio.h
+-
+parameters.h
+/home/vojta/CLionProjects/BcProject/parameters.h
+
+/home/vojta/CLionProjects/BcProject/main.c
+stdio.h
+-
+time.h
+-
+stdlib.h
+-
+helper_functions.h
+/home/vojta/CLionProjects/BcProject/helper_functions.h
+fitness_functions.h
+/home/vojta/CLionProjects/BcProject/fitness_functions.h
+search.h
+/home/vojta/CLionProjects/BcProject/search.h
+
+/home/vojta/CLionProjects/BcProject/parameters.h
+stdbool.h
+-
+
+/home/vojta/CLionProjects/BcProject/search.h
+parameters.h
+/home/vojta/CLionProjects/BcProject/parameters.h
+

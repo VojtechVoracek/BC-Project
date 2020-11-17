@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/BcProject.dir/main.c.o CMakeFiles/BcProject.dir/helper_functions.c.o CMakeFiles/BcProject.dir/fitness_functions.c.o CMakeFiles/BcProject.dir/parameters.c.o CMakeFiles/BcProject.dir/search.c.o  -o BcProject  -lm 
