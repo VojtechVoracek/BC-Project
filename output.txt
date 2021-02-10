@@ -1,0 +1,7 @@
+Finding optimal size of population for dimension: 8 - LT
+
+Trying 30: *@(2053.471827)****@(0.884214)
+Trying 32: *************************
+mean: 19692.800000
+
+Trying 31: **@(1.097363)*@(0.017905)Optimal size for dimension 8 is 32

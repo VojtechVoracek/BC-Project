@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/129/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/139/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/129/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/139/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vojta/CLionProjects/BcProject
+CMAKE_SOURCE_DIR = /home/voracvoj/BcProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vojta/CLionProjects/BcProject/cmake-build-debug
+CMAKE_BINARY_DIR = /home/voracvoj/BcProject/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/BcProject.dir/depend.make
@@ -79,68 +79,68 @@ include CMakeFiles/BcProject.dir/flags.make
 
 CMakeFiles/BcProject.dir/main.c.o: CMakeFiles/BcProject.dir/flags.make
 CMakeFiles/BcProject.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/BcProject.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/BcProject.dir/main.c.o   -c /home/vojta/CLionProjects/BcProject/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/BcProject.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/BcProject.dir/main.c.o   -c /home/voracvoj/BcProject/main.c
 
 CMakeFiles/BcProject.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/BcProject.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/vojta/CLionProjects/BcProject/main.c > CMakeFiles/BcProject.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/voracvoj/BcProject/main.c > CMakeFiles/BcProject.dir/main.c.i
 
 CMakeFiles/BcProject.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/BcProject.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/vojta/CLionProjects/BcProject/main.c -o CMakeFiles/BcProject.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/voracvoj/BcProject/main.c -o CMakeFiles/BcProject.dir/main.c.s
 
 CMakeFiles/BcProject.dir/helper_functions.c.o: CMakeFiles/BcProject.dir/flags.make
 CMakeFiles/BcProject.dir/helper_functions.c.o: ../helper_functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/BcProject.dir/helper_functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/BcProject.dir/helper_functions.c.o   -c /home/vojta/CLionProjects/BcProject/helper_functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/BcProject.dir/helper_functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/BcProject.dir/helper_functions.c.o   -c /home/voracvoj/BcProject/helper_functions.c
 
 CMakeFiles/BcProject.dir/helper_functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/BcProject.dir/helper_functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/vojta/CLionProjects/BcProject/helper_functions.c > CMakeFiles/BcProject.dir/helper_functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/voracvoj/BcProject/helper_functions.c > CMakeFiles/BcProject.dir/helper_functions.c.i
 
 CMakeFiles/BcProject.dir/helper_functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/BcProject.dir/helper_functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/vojta/CLionProjects/BcProject/helper_functions.c -o CMakeFiles/BcProject.dir/helper_functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/voracvoj/BcProject/helper_functions.c -o CMakeFiles/BcProject.dir/helper_functions.c.s
 
 CMakeFiles/BcProject.dir/fitness_functions.c.o: CMakeFiles/BcProject.dir/flags.make
 CMakeFiles/BcProject.dir/fitness_functions.c.o: ../fitness_functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/BcProject.dir/fitness_functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/BcProject.dir/fitness_functions.c.o   -c /home/vojta/CLionProjects/BcProject/fitness_functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/BcProject.dir/fitness_functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/BcProject.dir/fitness_functions.c.o   -c /home/voracvoj/BcProject/fitness_functions.c
 
 CMakeFiles/BcProject.dir/fitness_functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/BcProject.dir/fitness_functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/vojta/CLionProjects/BcProject/fitness_functions.c > CMakeFiles/BcProject.dir/fitness_functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/voracvoj/BcProject/fitness_functions.c > CMakeFiles/BcProject.dir/fitness_functions.c.i
 
 CMakeFiles/BcProject.dir/fitness_functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/BcProject.dir/fitness_functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/vojta/CLionProjects/BcProject/fitness_functions.c -o CMakeFiles/BcProject.dir/fitness_functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/voracvoj/BcProject/fitness_functions.c -o CMakeFiles/BcProject.dir/fitness_functions.c.s
 
 CMakeFiles/BcProject.dir/parameters.c.o: CMakeFiles/BcProject.dir/flags.make
 CMakeFiles/BcProject.dir/parameters.c.o: ../parameters.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/BcProject.dir/parameters.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/BcProject.dir/parameters.c.o   -c /home/vojta/CLionProjects/BcProject/parameters.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/BcProject.dir/parameters.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/BcProject.dir/parameters.c.o   -c /home/voracvoj/BcProject/parameters.c
 
 CMakeFiles/BcProject.dir/parameters.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/BcProject.dir/parameters.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/vojta/CLionProjects/BcProject/parameters.c > CMakeFiles/BcProject.dir/parameters.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/voracvoj/BcProject/parameters.c > CMakeFiles/BcProject.dir/parameters.c.i
 
 CMakeFiles/BcProject.dir/parameters.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/BcProject.dir/parameters.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/vojta/CLionProjects/BcProject/parameters.c -o CMakeFiles/BcProject.dir/parameters.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/voracvoj/BcProject/parameters.c -o CMakeFiles/BcProject.dir/parameters.c.s
 
 CMakeFiles/BcProject.dir/search.c.o: CMakeFiles/BcProject.dir/flags.make
 CMakeFiles/BcProject.dir/search.c.o: ../search.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/BcProject.dir/search.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/BcProject.dir/search.c.o   -c /home/vojta/CLionProjects/BcProject/search.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/BcProject.dir/search.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/BcProject.dir/search.c.o   -c /home/voracvoj/BcProject/search.c
 
 CMakeFiles/BcProject.dir/search.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/BcProject.dir/search.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/vojta/CLionProjects/BcProject/search.c > CMakeFiles/BcProject.dir/search.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/voracvoj/BcProject/search.c > CMakeFiles/BcProject.dir/search.c.i
 
 CMakeFiles/BcProject.dir/search.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/BcProject.dir/search.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/vojta/CLionProjects/BcProject/search.c -o CMakeFiles/BcProject.dir/search.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/voracvoj/BcProject/search.c -o CMakeFiles/BcProject.dir/search.c.s
 
 # Object files for target BcProject
 BcProject_OBJECTS = \
@@ -160,7 +160,7 @@ BcProject: CMakeFiles/BcProject.dir/parameters.c.o
 BcProject: CMakeFiles/BcProject.dir/search.c.o
 BcProject: CMakeFiles/BcProject.dir/build.make
 BcProject: CMakeFiles/BcProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable BcProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable BcProject"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BcProject.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -173,6 +173,6 @@ CMakeFiles/BcProject.dir/clean:
 .PHONY : CMakeFiles/BcProject.dir/clean
 
 CMakeFiles/BcProject.dir/depend:
-	cd /home/vojta/CLionProjects/BcProject/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vojta/CLionProjects/BcProject /home/vojta/CLionProjects/BcProject /home/vojta/CLionProjects/BcProject/cmake-build-debug /home/vojta/CLionProjects/BcProject/cmake-build-debug /home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/voracvoj/BcProject/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/voracvoj/BcProject /home/voracvoj/BcProject /home/voracvoj/BcProject/cmake-build-debug /home/voracvoj/BcProject/cmake-build-debug /home/voracvoj/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/BcProject.dir/depend
 

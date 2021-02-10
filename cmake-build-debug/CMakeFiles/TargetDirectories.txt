@@ -1,3 +1,3 @@
-/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir
+/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir

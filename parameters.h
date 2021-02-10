@@ -5,6 +5,7 @@
 #ifndef BCPROJECT_PARAMETERS_H
 #define BCPROJECT_PARAMETERS_H
 
+#define Matrix double*
 
 #include <stdbool.h>
 
@@ -13,6 +14,17 @@ extern double CR;
 extern double F;
 extern double (*func)(void*);
 extern double TERMINAL_CONDITION;
+
+int size_of_fraction;
+
+//radians
+double angle;
+
+double** matrix_1D;
+double** matrix_2D;
+double** matrix_3D;
+double** matrix_4D;
+double** matrix_5D;
 
 typedef struct Chromosome_t {
     double* vector;
@@ -46,6 +58,17 @@ typedef struct Dependency_t {
     int num_of_classes;
     int* size_of_classes;
 } Dependency;
+
+typedef struct Mack_t {
+    int* variables;
+    int lenght;
+} Mask;
+
+typedef struct Node_t {
+    Mask information;
+    struct Node_t* left;
+    struct Node_t* right;
+} Node;
 
 
 #endif //BCPROJECT_PARAMETERS_H

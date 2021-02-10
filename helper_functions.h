@@ -42,5 +42,33 @@ Dependency makeDependencies(int* vector);
 
 void freePopulation(Population population);
 
+double** allocMatrix(int size);
+
+double** make1D (double angle);
+
+double** make2D(double angle);
+
+double** make3D(double angle);
+
+double** make4D(double angle);
+
+double** make5D();
+
+void makeMatrices();
+
+void freeMatrices();
+
+Node* makeSubTree(int from, int to);
+
+void printTree(Node* root);
+
+Mask* makeArrayFromTree();
+
+void freeArrayFromTree(Node* root);
+
+void masksFromTree(Node* root, Mask** mask_array);
+
+void freeMaskArray(Mask* m);
+
 
 #endif //BCPROJECT_HELPER_FUNCTIONS_H

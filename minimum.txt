@@ -1,0 +1,4 @@
+LT: Optimal size for dimension 8 and size of fraction 3 is 22
+MP: Optimal size for dimension 8 and size of fraction 3 is 10
+MP: Optimal size for dimension 8 and size of fraction 2 is 9
+LT: Optimal size for dimension 8 and size of fraction 2 is 32

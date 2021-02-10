@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/vojta/CLionProjects/BcProject/fitness_functions.c" "/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir/fitness_functions.c.o"
-  "/home/vojta/CLionProjects/BcProject/helper_functions.c" "/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir/helper_functions.c.o"
-  "/home/vojta/CLionProjects/BcProject/main.c" "/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir/main.c.o"
-  "/home/vojta/CLionProjects/BcProject/parameters.c" "/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir/parameters.c.o"
-  "/home/vojta/CLionProjects/BcProject/search.c" "/home/vojta/CLionProjects/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir/search.c.o"
+  "/home/voracvoj/BcProject/fitness_functions.c" "/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir/fitness_functions.c.o"
+  "/home/voracvoj/BcProject/helper_functions.c" "/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir/helper_functions.c.o"
+  "/home/voracvoj/BcProject/main.c" "/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir/main.c.o"
+  "/home/voracvoj/BcProject/parameters.c" "/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir/parameters.c.o"
+  "/home/voracvoj/BcProject/search.c" "/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles/BcProject.dir/search.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

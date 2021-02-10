@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "search.h"
 #include "helper_functions.h"
+#include <math.h>
 
 Chromosome uniformMutate(Chromosome* x, Chromosome* a, Chromosome* b, Chromosome* c) {
 
@@ -30,13 +31,13 @@ Chromosome uniformMutate(Chromosome* x, Chromosome* a, Chromosome* b, Chromosome
     return new;
 }
 
-Chromosome informMutate(Chromosome* x, Chromosome* a, Chromosome* b, Chromosome* c, Dependency* dependency) {
+Chromosome mpMutate(Chromosome* x, Chromosome* a, Chromosome* b, Chromosome* c, Dependency* dependency) {
 
     Chromosome new;
     new.vector = (double *) malloc(DIMENSION * sizeof(double));
 
     double* r_is = randomSamples(dependency->num_of_classes);
-    int R = rand() % dependency->num_of_classes;
+    int R = rand() % DIMENSION;//dependency->num_of_classes;
 
     int current_index = 0;
 
@@ -67,10 +68,51 @@ Chromosome informMutate(Chromosome* x, Chromosome* a, Chromosome* b, Chromosome*
     return new;
 }
 
-Minim step(Population* population, Dependency* dependency, int flag) {
+void ltMutate(int index, Chromosome* x, Population* population, Mask* traversal_array) {
+
+    Chromosome new;
+    new.vector = (double *) malloc(DIMENSION * sizeof(double));
+
+    for (int i = 0; i < DIMENSION * 2 -1; ++i) {
+
+        Mask m = traversal_array[i];
+
+        int* triplet = pickThree(population->size, i);
+        Chromosome* a = &population->individuals[triplet[0]];
+        Chromosome* b = &population->individuals[triplet[1]];
+        Chromosome* c = &population->individuals[triplet[2]];
+
+        int from = m.variables[0];
+        int to = m.variables[m.lenght-1];
+        for (int j = 0; j < from; ++j) {
+            new.vector[j] = x->vector[j] + (b->vector[j] - c->vector[j]) * F;
+        }
+        for (int j = from; j <= to; ++j) {
+            new.vector[j] = a->vector[j];
+        }
+        for (int j = to+1; j < DIMENSION; ++j) {
+            new.vector[j] = x->vector[j] + (b->vector[j] - c->vector[j]) * F;
+        }
+
+        new.fitness = func(&new);
+
+        if (x->fitness > new.fitness) {
+            for (int j = 0; j < DIMENSION; ++j) {
+                x->vector[j] = new.vector[j];
+
+            }
+            x->fitness = new.fitness;
+        }
+        free(triplet);
+    }
+    free(new.vector);
+
+}
+
+Minim step(Population* population, Dependency* dependency, int flag, Mask* traversal_array) {
 
     Minim minimum;
-    minimum.value = 9999999;
+    minimum.value = 9999999999999999;
     Change* changes = (Change*) malloc(population->size * sizeof(Change));
     changes->size = 0;
 
@@ -82,11 +124,23 @@ Minim step(Population* population, Dependency* dependency, int flag) {
             new_individual = uniformMutate(&individual, &population->individuals[triplet[0]],
                                                      &population->individuals[triplet[1]],
                                                      &population->individuals[triplet[2]]);
-        } else {
-            new_individual = informMutate(&individual, &population->individuals[triplet[0]],
+        } else if (flag == 1) {
+            new_individual = mpMutate(&individual, &population->individuals[triplet[0]],
                                                      &population->individuals[triplet[1]],
                                                      &population->individuals[triplet[2]], dependency);
+        } else if (flag == 2) {
+            ltMutate(i, &individual, population, traversal_array);
+            if (individual.fitness <= minimum.value) {
+                minimum.value = individual.fitness;
+                minimum.index = i;
+            }
+            free(triplet);
+            continue;
+
+        } else {
+            printf("Wrong flag\n");
         }
+
         free(triplet);
         double new_value = func(&new_individual);
         new_individual.fitness = new_value;
@@ -112,23 +166,26 @@ Minim step(Population* population, Dependency* dependency, int flag) {
     return minimum;
 }
 
-Statistics DEAlgorithm(Population* population, Dependency* dependency, int flag) {
+Statistics DEAlgorithm(Population* population, Dependency* dependency, int flag, Mask* traversal_array) {
     //printPopulation(population);
     Statistics stats = initStatistics(population);
-    int max_num_of_evals = 200000 * DIMENSION;
+    int max_num_of_evals = 100000 * DIMENSION;
 
-    while (stats.minimum.value >= TERMINAL_CONDITION) {
-
-        Minim m = step(population, dependency, flag);
+    while (fabs(stats.minimum.value) >= TERMINAL_CONDITION) {
+        //printPopulation(population);
+        //sleep(1);
+        Minim m = step(population, dependency, flag, traversal_array);
 
         if (m.value < stats.minimum.value) {
+            //printf("New minimum: %5f\n", m.value);
             stats.minimum.value = m.value;
             stats.minimum.index = m.index;
         }
-
-        stats.num_of_evaluations += population->size;
+        if (flag == 2) stats.num_of_evaluations += population->size * (2*DIMENSION - 1);
+        else stats.num_of_evaluations += population->size;
 
         if (stats.num_of_evaluations >= max_num_of_evals) {
+            //printf("Too much\n");
             if (stats.minimum.value <= TERMINAL_CONDITION) {
                 stats.success = true;
             } else stats.success = false;
@@ -143,14 +200,13 @@ Statistics DEAlgorithm(Population* population, Dependency* dependency, int flag)
         }
 
         if (stats.num_of_evaluations % (population->size * 1000) == 0) {
-            printPopulation(population);
+            //printPopulation(population);
         }
 
         //printChromosome(population->individuals[stats.minimum.index]);
         //printPopulation(population);
 
     }
-
     stats.success = true;
     return stats;
 }

@@ -33,7 +33,6 @@ Chromosome initChromosome() {
         ch.vector[i] = normalRandom() * 100;
     }
     ch.fitness = func(&ch);
-
     return ch;
 }
 
@@ -71,7 +70,7 @@ int* pickThree(int size, int my_idx) {
 Statistics initStatistics(Population* population) {
     Statistics ret;
     Minim minimum;
-    minimum.value = 999999999;
+    minimum.value = 999999999999999;
     ret.num_of_evaluations = population->size;
     ret.success = false;
 
@@ -82,8 +81,7 @@ Statistics initStatistics(Population* population) {
         }
     }
     ret.minimum = minimum;
-    if (ret.minimum.value <= TERMINAL_CONDITION) ret.success = true;
-
+    if (fabs(ret.minimum.value) <= TERMINAL_CONDITION) ret.success = true;
     return ret;
 }
 
@@ -115,7 +113,7 @@ void printStatistics(Statistics* stats, Population* population) {
 bool equalPopulation(Population* population) {
     Chromosome first = population->individuals[0];
 
-    double epsilon = 0.00000001;
+    double epsilon = 0.0000000000000001;
 
     for (int i = 1; i < population->size; ++i) {
         for (int j = 0; j < DIMENSION; ++j) {
@@ -189,5 +187,188 @@ void freePopulation(Population population) {
         free(population.individuals[i].vector);
     }
     free(population.individuals);
+}
+
+double** allocMatrix(int size) {
+    double** m = (double **) malloc(size * sizeof(double*));
+    for (int i = 0; i < size; ++i) {
+        m[i] = (double *) malloc(size * sizeof(double));
+    }
+    return m;
+}
+
+double** make1D (double angle) {
+    double** matrix = allocMatrix(1);
+    matrix[0][0] = cos(angle);
+    return matrix;
+}
+
+double** make2D (double angle) {
+    double** matrix = allocMatrix(2);
+    matrix[0][0] = cos(angle);  matrix[0][1] = -sin(angle);
+    matrix[1][0] = sin(angle);  matrix[1][1] = cos(angle);
+    return matrix;
+}
+
+double** make3D (double angle) {
+    double** matrix = allocMatrix(3);
+    matrix[0][0] = cos(angle);  matrix[0][1] = -sin(angle); matrix[0][2] = 0;
+    matrix[1][0] = sin(angle);  matrix[1][1] = cos(angle);  matrix[1][2] = 0;
+    matrix[2][0] = 0;           matrix[2][1] = 0;           matrix[2][2] = 1;
+    return matrix;
+}
+
+double** make4D (double angle) {
+    double** matrix = allocMatrix(4);
+    matrix[0][0] = cos(angle);  matrix[0][1] = -sin(angle); matrix[0][2] = 0;   matrix[0][3] = 0;
+    matrix[1][0] = sin(angle);  matrix[1][1] = cos(angle);  matrix[1][2] = 0;   matrix[1][3] = 0;
+    matrix[2][0] = 0;           matrix[2][1] = 0;           matrix[2][2] = 1;   matrix[2][3] = 0;
+    matrix[3][0] = 0;           matrix[3][1] = 0;           matrix[3][2] = 0;   matrix[3][3] = 1;
+    return matrix;
+}
+
+double** make5D () {
+    double** matrix = allocMatrix(5);
+    matrix[0][0] = 0.954328;    matrix[0][1] = 0.0236714;   matrix[0][2] = 0.0930151;   matrix[0][3] = 0.162359;    matrix[0][4] = 0.231703;
+    matrix[1][0] = 0.0845678;   matrix[1][1] = 0.977164;    matrix[1][2] = 0.0388955;   matrix[1][3] = 0.100627;    matrix[1][4] = 0.162359;
+    matrix[2][0] = -0.123463;   matrix[2][1] = -0.0693437;  matrix[2][2] = 0.984776;    matrix[2][3] = 0.0388955;   matrix[2][4] = 0.0930151;
+    matrix[3][0] = -0.162359;   matrix[3][1] = -0.115851;   matrix[3][2] = -0.0693437;  matrix[3][3] = 0.977164;    matrix[3][4] = 0.0236714;
+    matrix[4][0] = -0.201254;   matrix[4][1] = -0.162359;   matrix[4][2] = -0.123463;   matrix[4][3] = -0.0845678;  matrix[4][4] = 0.954328;
+    return matrix;
+}
+
+void makeMatrices() {
+    matrix_1D = make1D(angle);
+    matrix_2D = make2D(angle);
+    matrix_3D = make3D(angle);
+    matrix_4D = make4D(angle);
+    matrix_5D = make5D();
+}
+
+void freeMatrices() {
+    double** a[5] = {matrix_1D, matrix_2D, matrix_3D, matrix_4D, matrix_5D};
+    for (int i = 0; i < 5; ++i) {
+        for (int j = 0; j < i+1; ++j) {
+            free(a[i][j]);
+        }
+        free(a[i]);
+    }
+}
+
+
+Node* makeSubTree(int from, int to) {
+    if (to >= DIMENSION) to = DIMENSION - 1;
+    if (from == to) {
+        Node* leaf = malloc(sizeof(Node));
+        leaf->left = NULL;
+        leaf->right = NULL;
+        Mask m;
+        m.variables = malloc(sizeof(int));
+        m.variables[0] = from;
+        m.lenght = 1;
+        leaf->information = m;
+        return leaf;
+    }
+
+    Node* inner = malloc(sizeof(Node));
+
+    inner->right = makeSubTree(to, to);
+    inner->left = makeSubTree(from, to-1);
+
+    Mask m;
+    m.lenght = to - from + 1;
+    m.variables = malloc(sizeof (int) * m.lenght);
+    int idx = 0;
+    for (int i = from; i <= to; ++i) {
+        m.variables[idx] = i;
+        idx++;
+    }
+    inner->information = m;
+    return inner;
+
+}
+
+void printTree(Node* root) {
+
+    if (root->right != NULL) {
+        printTree(root->right);
+    }
+    if (root->left != NULL) {
+        printTree(root->left);
+    }
+
+    for (int i = 0; i < root->information.lenght; ++i) {
+        printf("%d ", root->information.variables[i]);
+    }
+    printf("\n");
+}
+
+int index_for_mask = 0;
+
+void masksFromTree(Node* root, Mask** mask_array) {
+
+    if (root->right != NULL) {
+        mask_array[0][index_for_mask] = root->information;
+        index_for_mask++;
+        masksFromTree(root->left, mask_array);
+        masksFromTree(root->right, mask_array);
+    } else {
+        mask_array[0][root->information.variables[0] + DIMENSION - 1] = root->information;
+    }
+}
+
+Mask* makeArrayFromTree() {
+    int num_of_leafs = (int) ceil(((double)DIMENSION) / size_of_fraction);
+
+    Node ** nodes = malloc((2 * num_of_leafs - 1) * sizeof(Node*));
+    int from = 0;
+    int idx = 0;
+    for (int i = 0; i < num_of_leafs; ++i) {
+        nodes[idx] = makeSubTree(from, from + size_of_fraction - 1);
+        idx++;
+        from += size_of_fraction;
+        if (i != 0) {
+            Node *inner = malloc(sizeof(Node));
+            Mask m;
+            m.lenght = nodes[idx - 1]->information.lenght + nodes[idx - 2]->information.lenght;
+            m.variables = malloc(m.lenght * sizeof(int));
+            for (int j = 0; j < m.lenght; ++j) {
+                m.variables[j] = j;
+            }
+            inner->right = nodes[idx - 1];
+            inner->left = nodes[idx - 2];
+            inner->information = m;
+            nodes[idx] = inner;
+            idx++;
+        }
+    }
+    index_for_mask = 0;
+    Mask* mask_array = malloc((2*DIMENSION - 1) * sizeof(Mask));
+    masksFromTree(nodes[2*num_of_leafs-2], &mask_array);
+    free(nodes);
+
+
+    Mask* rotated = malloc((2*DIMENSION - 1) * sizeof(Mask));
+    for (int i = 0; i < 2*DIMENSION - 1; ++i) {
+        rotated[i] = mask_array[2*DIMENSION-2-i];
+    }
+
+    return mask_array;
+
+
+    return mask_array;
+}
+
+void freeArrayFromTree(Node* root) {
+    if (root->left != NULL) freeArrayFromTree(root->left);
+    if (root->right != NULL) freeArrayFromTree(root->right);
+    free(root->information.variables);
+    free(root);
+}
+
+void freeMaskArray(Mask* m) {
+    for (int i = 0; i < 2*DIMENSION-1; ++i) {
+        free(m[i].variables);
+    }
 }
 

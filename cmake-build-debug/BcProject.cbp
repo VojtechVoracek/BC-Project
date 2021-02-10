@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/vojta/CLionProjects/BcProject/cmake-build-debug"/>
+				<Option working_dir="/home/voracvoj/BcProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/vojta/CLionProjects/BcProject/cmake-build-debug"/>
+				<Option working_dir="/home/voracvoj/BcProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/vojta/CLionProjects/BcProject/cmake-build-debug"/>
+				<Option working_dir="/home/voracvoj/BcProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="BcProject">
-				<Option output="/home/vojta/CLionProjects/BcProject/cmake-build-debug/BcProject" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/vojta/CLionProjects/BcProject/cmake-build-debug"/>
+				<Option output="/home/voracvoj/BcProject/cmake-build-debug/BcProject" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/voracvoj/BcProject/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -50,15 +50,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 BcProject"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 BcProject"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="BcProject/fast">
-				<Option output="/home/vojta/CLionProjects/BcProject/cmake-build-debug/BcProject" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/vojta/CLionProjects/BcProject/cmake-build-debug"/>
+				<Option output="/home/voracvoj/BcProject/cmake-build-debug/BcProject" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/voracvoj/BcProject/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -69,41 +69,41 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 BcProject/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vojta/CLionProjects/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 BcProject/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/voracvoj/BcProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/vojta/CLionProjects/BcProject/fitness_functions.c">
+		<Unit filename="/home/voracvoj/BcProject/fitness_functions.c">
 			<Option target="BcProject"/>
 		</Unit>
-		<Unit filename="/home/vojta/CLionProjects/BcProject/fitness_functions.h">
+		<Unit filename="/home/voracvoj/BcProject/fitness_functions.h">
 			<Option target="BcProject"/>
 		</Unit>
-		<Unit filename="/home/vojta/CLionProjects/BcProject/helper_functions.c">
+		<Unit filename="/home/voracvoj/BcProject/helper_functions.c">
 			<Option target="BcProject"/>
 		</Unit>
-		<Unit filename="/home/vojta/CLionProjects/BcProject/helper_functions.h">
+		<Unit filename="/home/voracvoj/BcProject/helper_functions.h">
 			<Option target="BcProject"/>
 		</Unit>
-		<Unit filename="/home/vojta/CLionProjects/BcProject/main.c">
+		<Unit filename="/home/voracvoj/BcProject/main.c">
 			<Option target="BcProject"/>
 		</Unit>
-		<Unit filename="/home/vojta/CLionProjects/BcProject/parameters.c">
+		<Unit filename="/home/voracvoj/BcProject/parameters.c">
 			<Option target="BcProject"/>
 		</Unit>
-		<Unit filename="/home/vojta/CLionProjects/BcProject/parameters.h">
+		<Unit filename="/home/voracvoj/BcProject/parameters.h">
 			<Option target="BcProject"/>
 		</Unit>
-		<Unit filename="/home/vojta/CLionProjects/BcProject/search.c">
+		<Unit filename="/home/voracvoj/BcProject/search.c">
 			<Option target="BcProject"/>
 		</Unit>
-		<Unit filename="/home/vojta/CLionProjects/BcProject/search.h">
+		<Unit filename="/home/voracvoj/BcProject/search.h">
 			<Option target="BcProject"/>
 		</Unit>
-		<Unit filename="/home/vojta/CLionProjects/BcProject/CMakeLists.txt">
+		<Unit filename="/home/voracvoj/BcProject/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
