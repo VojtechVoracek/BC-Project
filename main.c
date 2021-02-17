@@ -25,7 +25,7 @@ bool perform25LT(int size) {
 
     for (int i = 0; i < 25; ++i) {
         Population population = initPopulation(size);
-        Statistics stats = DEAlgorithm(&population, NULL, 2, traversal_array);
+        Statistics stats = DEAlgorithm(&population, 2);
         if (stats.success) {
             if (LOG) fprintf(f, "*");
             printf("*");
@@ -112,7 +112,7 @@ bool perform25MP(int size) {
 
     for (int i = 0; i < 5; ++i) {
         Population population = initPopulation(size);
-        Statistics stats = DEAlgorithm(&population, &dependency, 1, NULL);
+        Statistics stats = DEAlgorithm(&population, 1);
         if (stats.success) {
             if (LOG) fprintf(f, "*");
             printf("*");
@@ -191,7 +191,7 @@ bool perform25Uniform(int size) {
 
     for (int i = 0; i < 25; ++i) {
         Population population = initPopulation(size);
-        Statistics stats = DEAlgorithm(&population, NULL, 0, NULL);
+        Statistics stats = DEAlgorithm(&population, 0);
         if (stats.success) {
             printf("*");
             freePopulation(population);
@@ -260,7 +260,7 @@ double findMeanLT(int iterations, int size_of_population) {
 
     for (int i = 0; i < iterations; ++i) {
         Population p = initPopulation(size_of_population);
-        Statistics stats = DEAlgorithm(&p,NULL, 2, traversal_array);
+        Statistics stats = DEAlgorithm(&p, 2);
         freePopulation(p);
         if (!stats.success) {
             printf("#");
@@ -289,7 +289,7 @@ double findMeanMP(int iterations, int size_of_population) {
 
     for (int i = 0; i < iterations; ++i) {
         Population p = initPopulation(size_of_population);
-        Statistics stats = DEAlgorithm(&p, &dependency, 1, NULL);
+        Statistics stats = DEAlgorithm(&p, 1);
         freePopulation(p);
         if (!stats.success) {
             printf("#");
@@ -311,7 +311,7 @@ double findMeanUniform(int iterations, int size_of_population) {
     printf("\n");
     for (int i = 0; i < iterations; ++i) {
         Population p = initPopulation(size_of_population);
-        Statistics stats = DEAlgorithm(&p, NULL, 0, NULL);
+        Statistics stats = DEAlgorithm(&p, 0);
         freePopulation(p);
         if (!stats.success) {
             printf("#");
@@ -330,15 +330,20 @@ double findMeanUniform(int iterations, int size_of_population) {
 int main() {
 
     srand(time(NULL));
-    f = fopen("output.txt", "w");
+
+    //f = fopen("output.txt", "w");
 
     func = SoREB;
     angle = M_PI/4;
+
     makeMatrices();
     F = 0.7;
+
+    DIMENSION = 6;
+    size_of_fraction = 2;
     //LOG = false;
 
-
+    /*
     int dims[] = {8, 14, 20, 30, 44, 60, 78, 98, 120};
     int fracs[] = {2, 3, 4, 5};
 
@@ -353,10 +358,13 @@ int main() {
             }
         }
     }
+    */
 
+    Population population = initPopulation(10);
 
+    Statistics stats = DEAlgorithm(&population, 2);
 
-    fclose(f);
+    //fclose(f);
     freeMatrices();
     return 0;
 }

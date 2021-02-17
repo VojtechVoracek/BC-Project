@@ -10,13 +10,16 @@
 
 Chromosome uniformMutate(Chromosome* x, Chromosome* a, Chromosome* b, Chromosome* c);
 
-Chromosome mpMutate(Chromosome* x, Chromosome* a, Chromosome* b, Chromosome* c, Dependency* dependency);
+Chromosome fosMutate(Chromosome* x, Chromosome* a, Chromosome* b, Population* p, FOS fos);
 
 void ltMutate(int index, Chromosome* x, Population* p, Mask* traversal_array);
 
-Minim step(Population* population, Dependency* dependency, int flag, Mask* traversal_array);
+Minim step(Population* population, int flag, FOS* fos);
 
-Statistics DEAlgorithm(Population* population, Dependency* dependency, int flag, Mask* traversal_array);
+FOS initFos(int flag);
 
+FOS learnFos(Population* population, double** miMatrix, int flag);
+
+Statistics DEAlgorithm(Population* population, int flag);
 
 #endif //BCPROJECT_SEARCH_H

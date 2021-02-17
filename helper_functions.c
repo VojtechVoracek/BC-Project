@@ -372,3 +372,121 @@ void freeMaskArray(Mask* m) {
     }
 }
 
+
+int* individuals2Learning (Population* population) {
+    int* indexes = malloc(population->size * sizeof(int));
+    int idx = 0;
+
+    for (int i = 0; i < population->size && idx < population->size; ++i) {
+        int rn = population->size - i;
+        int rm = population->size - idx;
+        if (rand() % rn < rm) indexes[idx++] = i;
+    }
+
+    int* selected_indexes = malloc((population->size/2) * sizeof(int));
+
+    for (int i = 0; i < population->size/2; ++i) {
+        if (population->individuals[indexes[i]].fitness < population->individuals[indexes[i+1]].fitness) {
+            selected_indexes[i] = indexes[i];
+        } else {
+            selected_indexes[i] = indexes[i+1];
+        }
+    }
+
+    free(indexes);
+
+    return selected_indexes;
+}
+
+
+void freeFOS(FOS fos, double** D) {
+    for (int i = 0; i < fos.number_of_subsets; ++i) {
+        free(fos.parts[i].indexes);
+    }
+    free(fos.parts);
+    for (int i = 0; i < DIMENSION; ++i) {
+        free(D[i]);
+    }
+    free(D);
+}
+
+
+double** createDependencyMatrix(Population* population) {
+
+    int* selected_individuals = individuals2Learning(population);
+    double* a = calloc(DIMENSION, sizeof(double));
+    double* b = calloc(DIMENSION, sizeof(double));
+    for (int i = 0; i < population->size/2; ++i) {
+        for (int j = 0; j < DIMENSION; ++j) {
+            double value = population->individuals[selected_individuals[i]].vector[j];
+            if (value > a[j]) a[j] = value;
+            if (value < b[j]) b[j] = value;
+        }
+    }
+
+    for (int i = 0; i < DIMENSION; ++i) {
+        double tmp = b[i];
+        b[i] = 0.35 * (a[i] - b[i]);
+        a[i] = tmp + b[i];
+    }
+
+    double** D = malloc(DIMENSION * sizeof(double*));
+
+    for (int i = 0; i < DIMENSION; ++i) {
+        D[i] = malloc(DIMENSION * sizeof(double));
+
+    }
+    int idx = selected_individuals[rand() % population->size/2];
+    Chromosome test_individual;
+    test_individual.vector = malloc(DIMENSION * sizeof(double));
+    for (int i = 0; i < DIMENSION; ++i) {
+        test_individual.vector[i] = population->individuals[idx].vector[i];
+    }
+
+    for (int i = 0; i < DIMENSION; ++i) {
+        for (int j = i+1; j < DIMENSION; ++j) {
+
+            test_individual.vector[i] = a[i];
+            test_individual.vector[j] = a[j];
+            double diff_i = func(&test_individual);
+
+            test_individual.vector[i] += b[i];
+            diff_i -= func(&test_individual);
+
+            test_individual.vector[i] = a[i];
+            test_individual.vector[j] = a[j] + b[j];
+            double diff_ij = func(&test_individual);
+
+            test_individual.vector[i] += b[i];
+            diff_ij -= func(&test_individual);
+
+            diff_ij = fabs(diff_ij);
+            diff_i = fabs(diff_i);
+            if (diff_i - diff_ij >= 0) {
+                D[i][j] = 1 - fabs(diff_ij/diff_i);
+                D[j][i] = D[i][j];
+            } else {
+                D[i][j] = 1 - fabs(diff_i/diff_ij);
+                D[j][i] = D[i][j];
+
+            }
+        }
+    }
+
+    return D;
+}
+
+void printFOS(FOS fos) {
+    for (int i = 0; i < fos.number_of_subsets; ++i) {
+        for (int j = 0; j < fos.parts[i].number_of_variables; ++j) {
+            printf("%d ", fos.parts[i].indexes[j]);
+        }
+        printf(" | ");
+    }
+    printf("\n");
+}
+
+
+
+
+

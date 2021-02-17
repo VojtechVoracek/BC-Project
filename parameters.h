@@ -59,6 +59,16 @@ typedef struct Dependency_t {
     int* size_of_classes;
 } Dependency;
 
+typedef struct subset_t {
+    int number_of_variables;
+    int* indexes;
+} subset;
+
+typedef struct FOS_t {
+    int number_of_subsets;
+    subset* parts;
+} FOS;
+
 typedef struct Mack_t {
     int* variables;
     int lenght;

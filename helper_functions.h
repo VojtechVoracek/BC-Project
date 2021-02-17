@@ -70,5 +70,12 @@ void masksFromTree(Node* root, Mask** mask_array);
 
 void freeMaskArray(Mask* m);
 
+int* individuals2Learning (Population * p);
+
+void freeFOS(FOS fos, double** D);
+
+double** createDependencyMatrix(Population* population);
+
+void printFOS(FOS fos);
 
 #endif //BCPROJECT_HELPER_FUNCTIONS_H
