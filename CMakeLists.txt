@@ -4,6 +4,6 @@ project(BcProject C)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c99 -Wall -pedantic")
 
-add_executable(BcProject main.c helper_functions.c helper_functions.h fitness_functions.c fitness_functions.h parameters.c parameters.h search.c search.h)
+add_executable(BcProject main.c helper_functions.c helper_functions.h fitness_functions.c fitness_functions.h parameters.c parameters.h search.c search.h minepy-1.2.5/libmine/mine.c comparison.c comparison.h)
 
 target_link_libraries(BcProject PRIVATE m)

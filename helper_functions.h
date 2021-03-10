@@ -44,19 +44,31 @@ void freePopulation(Population population);
 
 double** allocMatrix(int size);
 
+double** makeOriginRotationMatrix(int dimension, double angle);
+
+double** makeTranslationMatrix(int dimension, double* point);
+
+double** makeInverseTranslationMatrix(int dimension, double* point);
+
+double** makeRotationMatrix(int dimension, double angle, double* point);
+
 double** make1D (double angle);
 
-double** make2D(double angle);
+double** make2D (double angle);
 
-double** make3D(double angle);
+double** make3D (double angle);
 
-double** make4D(double angle);
+double** make4D (double angle);
 
-double** make5D();
+double** make5D(double angle);
 
-void makeMatrices();
+void makeMatrices(double angle);
+
+void printSquareMatrix(double** M, int dimension, char* name);
 
 void freeMatrices();
+
+void freeSquareMatrix(double** M, int dimension);
 
 Node* makeSubTree(int from, int to);
 
@@ -76,6 +88,14 @@ void freeFOS(FOS fos, double** D);
 
 double** createDependencyMatrix(Population* population);
 
+double** createMIMatrix(Population* population);
+
 void printFOS(FOS fos);
+
+int* findNBest(Population* population, int n);
+
+double** createMICMatrix(Population* population);
+
+double** getOptimalDMatrix();
 
 #endif //BCPROJECT_HELPER_FUNCTIONS_H

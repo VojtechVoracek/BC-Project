@@ -1,9 +1,11 @@
 file(REMOVE_RECURSE
   "BcProject"
   "BcProject.pdb"
+  "CMakeFiles/BcProject.dir/comparison.c.o"
   "CMakeFiles/BcProject.dir/fitness_functions.c.o"
   "CMakeFiles/BcProject.dir/helper_functions.c.o"
   "CMakeFiles/BcProject.dir/main.c.o"
+  "CMakeFiles/BcProject.dir/minepy-1.2.5/libmine/mine.c.o"
   "CMakeFiles/BcProject.dir/parameters.c.o"
   "CMakeFiles/BcProject.dir/search.c.o"
 )

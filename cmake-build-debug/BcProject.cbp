@@ -76,6 +76,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/voracvoj/BcProject/comparison.c">
+			<Option target="BcProject"/>
+		</Unit>
+		<Unit filename="/home/voracvoj/BcProject/comparison.h">
+			<Option target="BcProject"/>
+		</Unit>
 		<Unit filename="/home/voracvoj/BcProject/fitness_functions.c">
 			<Option target="BcProject"/>
 		</Unit>
@@ -89,6 +95,12 @@
 			<Option target="BcProject"/>
 		</Unit>
 		<Unit filename="/home/voracvoj/BcProject/main.c">
+			<Option target="BcProject"/>
+		</Unit>
+		<Unit filename="/home/voracvoj/BcProject/minepy-1.2.5/libmine/mine.c">
+			<Option target="BcProject"/>
+		</Unit>
+		<Unit filename="/home/voracvoj/BcProject/minepy-1.2.5/libmine/mine.h">
 			<Option target="BcProject"/>
 		</Unit>
 		<Unit filename="/home/voracvoj/BcProject/parameters.c">

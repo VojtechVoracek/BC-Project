@@ -6,9 +6,13 @@
 #include "fitness_functions.h"
 //#include "uniform_search.h"
 //#include "inform_search.h"
-#include "search.h"
+//#include "search.h"
 #include <math.h>
+#include "comparison.h"
 
+
+
+/*
 FILE* f;
 bool LOG = true;
 
@@ -326,45 +330,45 @@ double findMeanUniform(int iterations, int size_of_population) {
 
     return mean;
 }
+*/
+
 
 int main() {
 
     srand(time(NULL));
-
-    //f = fopen("output.txt", "w");
-
-    func = SoREB;
-    angle = M_PI/4;
-
-    makeMatrices();
+    double angle = acos(-1)/2.5;
+    makeMatrices(angle);
     F = 0.7;
+    size_of_fraction = 5;
 
-    DIMENSION = 6;
-    size_of_fraction = 2;
-    //LOG = false;
 
-    /*
-    int dims[] = {8, 14, 20, 30, 44, 60, 78, 98, 120};
-    int fracs[] = {2, 3, 4, 5};
+    void** problems = malloc(5 * sizeof(void*));
+    problems[0] = (void*)sphere;
+    problems[2] = (void*)Michalewicz;
+    problems[1] = (void*)oneMax;
+    problems[3] = (void*)Rastrigin;
+    problems[4] = (void*)Rosenbrock;
 
-    int opt_sizes_informed[][3] = {{8,9,10}, {8,10,12}, {10,11,13}, {10,11,14}, {10,12,15}, {11,13,16}, {11,14,18}, {11,16,19}};
-    int opt_sizes_uninformed[][3] = {{7,7,8}, {8,8,8}, {9,9,8}, {9,9,8}, {9,9,10}, {10,9,10}, {10,10,10}, {11,10,10}};
-    for (int q = 0; q < 1; ++q) {
-        for (int i = 0; i < 8; ++i) {
-            for (int j = 0; j < 1; ++j) {
-                DIMENSION = dims[i];
-                size_of_fraction = fracs[j];
-                findOptimalSizeLT();
+    int* dimension = malloc(5 * sizeof(int));
+    dimension[0] = 5;
+    dimension[1] = 10;
+    dimension[2] = 15;
+    dimension[3] = 20;
+    dimension[4] = 25;
+
+
+    int*** sizes = findOptimalPopulationSize(problems, 5, dimension, 5, 5, "testik.txt");
+
+    for (int i = 0; i < 9; ++i) {
+        for (int j = 0; j < 5; ++j) {
+            for (int k = 0; k < 5; ++k) {
+                printf("%d ", sizes[i][j][k]);
             }
+            printf("\n");
         }
+        printf("----------------\n");
     }
-    */
 
-    Population population = initPopulation(10);
-
-    Statistics stats = DEAlgorithm(&population, 2);
-
-    //fclose(f);
     freeMatrices();
     return 0;
 }

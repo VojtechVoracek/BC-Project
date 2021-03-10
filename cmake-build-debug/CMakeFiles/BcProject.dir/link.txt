@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/BcProject.dir/main.c.o CMakeFiles/BcProject.dir/helper_functions.c.o CMakeFiles/BcProject.dir/fitness_functions.c.o CMakeFiles/BcProject.dir/parameters.c.o CMakeFiles/BcProject.dir/search.c.o  -o BcProject  -lm 
+/usr/bin/cc -g   CMakeFiles/BcProject.dir/main.c.o CMakeFiles/BcProject.dir/helper_functions.c.o CMakeFiles/BcProject.dir/fitness_functions.c.o CMakeFiles/BcProject.dir/parameters.c.o CMakeFiles/BcProject.dir/search.c.o CMakeFiles/BcProject.dir/minepy-1.2.5/libmine/mine.c.o CMakeFiles/BcProject.dir/comparison.c.o  -o BcProject  -lm 

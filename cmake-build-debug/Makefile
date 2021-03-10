@@ -143,6 +143,33 @@ BcProject/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BcProject.dir/build.make CMakeFiles/BcProject.dir/build
 .PHONY : BcProject/fast
 
+comparison.o: comparison.c.o
+
+.PHONY : comparison.o
+
+# target to build an object file
+comparison.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BcProject.dir/build.make CMakeFiles/BcProject.dir/comparison.c.o
+.PHONY : comparison.c.o
+
+comparison.i: comparison.c.i
+
+.PHONY : comparison.i
+
+# target to preprocess a source file
+comparison.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BcProject.dir/build.make CMakeFiles/BcProject.dir/comparison.c.i
+.PHONY : comparison.c.i
+
+comparison.s: comparison.c.s
+
+.PHONY : comparison.s
+
+# target to generate assembly for a file
+comparison.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BcProject.dir/build.make CMakeFiles/BcProject.dir/comparison.c.s
+.PHONY : comparison.c.s
+
 fitness_functions.o: fitness_functions.c.o
 
 .PHONY : fitness_functions.o
@@ -224,6 +251,33 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BcProject.dir/build.make CMakeFiles/BcProject.dir/main.c.s
 .PHONY : main.c.s
 
+minepy-1.2.5/libmine/mine.o: minepy-1.2.5/libmine/mine.c.o
+
+.PHONY : minepy-1.2.5/libmine/mine.o
+
+# target to build an object file
+minepy-1.2.5/libmine/mine.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BcProject.dir/build.make CMakeFiles/BcProject.dir/minepy-1.2.5/libmine/mine.c.o
+.PHONY : minepy-1.2.5/libmine/mine.c.o
+
+minepy-1.2.5/libmine/mine.i: minepy-1.2.5/libmine/mine.c.i
+
+.PHONY : minepy-1.2.5/libmine/mine.i
+
+# target to preprocess a source file
+minepy-1.2.5/libmine/mine.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BcProject.dir/build.make CMakeFiles/BcProject.dir/minepy-1.2.5/libmine/mine.c.i
+.PHONY : minepy-1.2.5/libmine/mine.c.i
+
+minepy-1.2.5/libmine/mine.s: minepy-1.2.5/libmine/mine.c.s
+
+.PHONY : minepy-1.2.5/libmine/mine.s
+
+# target to generate assembly for a file
+minepy-1.2.5/libmine/mine.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BcProject.dir/build.make CMakeFiles/BcProject.dir/minepy-1.2.5/libmine/mine.c.s
+.PHONY : minepy-1.2.5/libmine/mine.c.s
+
 parameters.o: parameters.c.o
 
 .PHONY : parameters.o
@@ -287,6 +341,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... BcProject"
+	@echo "... comparison.o"
+	@echo "... comparison.i"
+	@echo "... comparison.s"
 	@echo "... fitness_functions.o"
 	@echo "... fitness_functions.i"
 	@echo "... fitness_functions.s"
@@ -296,6 +353,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... minepy-1.2.5/libmine/mine.o"
+	@echo "... minepy-1.2.5/libmine/mine.i"
+	@echo "... minepy-1.2.5/libmine/mine.s"
 	@echo "... parameters.o"
 	@echo "... parameters.i"
 	@echo "... parameters.s"

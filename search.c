@@ -6,9 +6,8 @@
 #include "search.h"
 #include "helper_functions.h"
 #include <math.h>
+#include <unistd.h>
 
-#define LT_FOS 1
-#define MP_FOS 2
 
 Chromosome uniformMutate(Chromosome* x, Chromosome* a, Chromosome* b, Chromosome* c) {
 
@@ -121,10 +120,11 @@ Minim step(Population* population, int flag, FOS* fos) {
     changes->size = 0;
 
     for (int i = 0; i < population->size; ++i) {
+
         Chromosome individual = population->individuals[i];
         int* triplet = pickThree(population->size, i);
         Chromosome new_individual;
-        if (flag == 0) {
+        if (flag == UNIFORM) {
             new_individual = uniformMutate(&individual, &population->individuals[triplet[0]],
                                                      &population->individuals[triplet[1]],
                                                      &population->individuals[triplet[2]]);
@@ -160,10 +160,10 @@ Minim step(Population* population, int flag, FOS* fos) {
 }
 
 
-FOS learnFos(Population* population, double** D, int flag) {
+FOS learnFos(double** D, int flag) {
 
     FOS fos;
-    if (flag == LT_FOS) {
+    if (flag == LT_FOS || flag == LT_FOS_f) {
         fos.number_of_subsets = 2 * DIMENSION - 1;
         fos.parts = malloc(fos.number_of_subsets * sizeof(subset));
         bool* isNodeActive = calloc(2*DIMENSION-1, sizeof(bool));
@@ -180,11 +180,10 @@ FOS learnFos(Population* population, double** D, int flag) {
             double maxMI = -1;
             int nodes[2];
 
-            for (int j = 0; j < DIMENSION+i; ++j) {
+            for (int j = 0; j < DIMENSION+i-1; ++j) {
                 if (!isNodeActive[j]) continue;
                 for (int k = j+1; k < DIMENSION+i; ++k) {
                     if (!isNodeActive[k]) continue;
-
                     double dependency = 0;
                     for (int l = 0; l < fos.parts[j].number_of_variables; ++l) {
                         for (int m = 0; m < fos.parts[k].number_of_variables; ++m) {
@@ -192,7 +191,6 @@ FOS learnFos(Population* population, double** D, int flag) {
                         }
                     }
                     dependency /= fos.parts[j].number_of_variables * fos.parts[k].number_of_variables;
-
                     if (dependency > maxMI) {
                         maxMI = dependency;
                         nodes[0] = j;
@@ -202,7 +200,7 @@ FOS learnFos(Population* population, double** D, int flag) {
             }
 
             fos.parts[DIMENSION + i].number_of_variables = fos.parts[nodes[0]].number_of_variables + fos.parts[nodes[1]].number_of_variables;
-            fos.parts[DIMENSION + i].indexes = malloc(fos.parts[DIMENSION + 1].number_of_variables * sizeof(int));
+            fos.parts[DIMENSION + i].indexes = malloc(fos.parts[DIMENSION + i].number_of_variables * sizeof(int));
 
             for (int j = 0; j < fos.parts[DIMENSION + i].number_of_variables; ++j) {
 
@@ -216,7 +214,7 @@ FOS learnFos(Population* population, double** D, int flag) {
             isNodeActive[DIMENSION+i] = true;
         }
 
-    } else if (flag == MP_FOS) {
+    } else if (flag == MP_FOS || flag == MP_FOS_f) {
 
         fos.number_of_subsets = 2 * DIMENSION - 1;
         fos.parts = malloc(fos.number_of_subsets * sizeof(subset));
@@ -230,8 +228,10 @@ FOS learnFos(Population* population, double** D, int flag) {
             fos.parts[i] = variable;
         }
 
+        double dependency = 0;
+        double maxMI = -1;
         for (int i = 0; i < DIMENSION - 1; ++i) {
-            double maxMI = -1;
+            maxMI = -1;
             int nodes[2];
 
             for (int j = 0; j < DIMENSION+i; ++j) {
@@ -239,7 +239,7 @@ FOS learnFos(Population* population, double** D, int flag) {
                 for (int k = j+1; k < DIMENSION+i; ++k) {
                     if (!isNodeActive[k]) continue;
 
-                    double dependency = 0;
+                    dependency = 0;
                     for (int l = 0; l < fos.parts[j].number_of_variables; ++l) {
                         for (int m = 0; m < fos.parts[k].number_of_variables; ++m) {
                             dependency += D[fos.parts[j].indexes[l]][fos.parts[k].indexes[m]];
@@ -258,7 +258,7 @@ FOS learnFos(Population* population, double** D, int flag) {
             if(fabs(maxMI) < 0.00001) break;
 
             fos.parts[DIMENSION + i].number_of_variables = fos.parts[nodes[0]].number_of_variables + fos.parts[nodes[1]].number_of_variables;
-            fos.parts[DIMENSION + i].indexes = malloc(fos.parts[DIMENSION + 1].number_of_variables * sizeof(int));
+            fos.parts[DIMENSION + i].indexes = malloc(fos.parts[DIMENSION + i].number_of_variables * sizeof(int));
 
             for (int j = 0; j < fos.parts[DIMENSION + i].number_of_variables; ++j) {
 
@@ -290,14 +290,14 @@ FOS learnFos(Population* population, double** D, int flag) {
                 idx++;
             }
         }
-        printFOS(reduced_fos);
+        //printFOS(reduced_fos);
         return reduced_fos;
     }
 
     return fos;
 }
 
-Statistics DEAlgorithm(Population* population, int flag) {
+Statistics DEAlgorithm(Population* population, int fos_flag, int dist_flag) {
     //printPopulation(population);
     Statistics stats = initStatistics(population);
     int max_num_of_evals = 100000 * DIMENSION;
@@ -308,20 +308,34 @@ Statistics DEAlgorithm(Population* population, int flag) {
         //printPopulation(population);
         //sleep(1);
 
-        //double** D = createDependencyMatrix(population->individuals[rand() % population->size]);
+        double** D;
+        if (fos_flag == LT_FOS || fos_flag == MP_FOS) {
+            if (dist_flag == MIC) D = createMICMatrix(population);
+            if (dist_flag == LINC) D = createDependencyMatrix(population);
+        }
 
-        double** D = createDependencyMatrix(population);
-        FOS fos = learnFos(population, D, LT_FOS);
-        printFOS(fos);
-        Minim m = step(population, flag, &fos);
-        freeFOS(fos, D);
+        if (fos_flag == LT_FOS_f || fos_flag == MP_FOS_f) D = getOptimalDMatrix();
+
+        FOS fos;
+        if (fos_flag != UNIFORM) fos = learnFos(D, fos_flag);
+
+        if (stats.num_of_evaluations % (20 * population->size) == 0) {
+            if (fos_flag != UNIFORM) {
+                //printFOS(fos);
+                //printSquareMatrix(D, DIMENSION, "MI matrix");
+            }
+        }
+        //printf("Just before step..\n");
+        Minim m = step(population, fos_flag, &fos);
+        //printf("Just after step...\n");
+        if (fos_flag != UNIFORM) freeFOS(fos, D);
 
         if (m.value < stats.minimum.value) {
             //printf("New minimum: %5f\n", m.value);
             stats.minimum.value = m.value;
             stats.minimum.index = m.index;
         }
-        if (flag == 2) stats.num_of_evaluations += population->size * (2*DIMENSION - 1);
+        if (fos_flag == 2) stats.num_of_evaluations += population->size * (2 * DIMENSION - 1);
         else stats.num_of_evaluations += population->size;
 
         if (stats.num_of_evaluations >= max_num_of_evals) {

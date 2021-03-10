@@ -9,6 +9,26 @@
 
 #include <stdbool.h>
 
+#define UNIFORM 0
+#define LT_FOS 1
+#define MP_FOS 2
+#define LT_FOS_f 3
+#define MP_FOS_f 4
+
+#define MIC 1
+#define LINC 2
+
+#define LT_FOS_MIC 11
+#define LT_FOS_LINC 12
+#define MP_FOS_MIC 21
+#define MP_FOS_LINC 22
+
+#define LT_FOS_f_MIC 31
+#define LT_FOS_f_LINC 32
+#define MP_FOS_f_MIC 41
+#define MP_FOS_f_LINC 42
+
+
 extern int DIMENSION;
 extern double CR;
 extern double F;
@@ -17,8 +37,6 @@ extern double TERMINAL_CONDITION;
 
 int size_of_fraction;
 
-//radians
-double angle;
 
 double** matrix_1D;
 double** matrix_2D;

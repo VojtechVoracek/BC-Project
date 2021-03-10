@@ -18,8 +18,8 @@ Minim step(Population* population, int flag, FOS* fos);
 
 FOS initFos(int flag);
 
-FOS learnFos(Population* population, double** miMatrix, int flag);
+FOS learnFos(double** D, int flag);
 
-Statistics DEAlgorithm(Population* population, int flag);
+Statistics DEAlgorithm(Population* population, int fos_flag, int dist_flag);
 
 #endif //BCPROJECT_SEARCH_H

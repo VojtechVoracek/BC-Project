@@ -1,0 +1,178 @@
+Finding optimal size of population for dimension: 5
+
+Trying 5: **@(0.000000)
+Trying 7: *****
+mean: 2031.400000
+
+Trying 6: **#(0.000471)Optimal size for dimension 5 is 7
+Finding optimal size of population for dimension: 10
+
+Trying 5: @(12.345692)
+Trying 7: *#(35.275896)
+Trying 9: *****
+mean: 7030.800000
+
+Trying 8: *****
+mean: 6016.000000
+Optimal size for dimension 10 is 8
+Finding optimal size of population for dimension: 15
+
+Trying 5: @(3167.623081)
+Trying 7: *#(5.309600)
+Trying 9: *****
+mean: 13620.600000
+
+Trying 8: *****
+mean: 11769.600000
+Optimal size for dimension 15 is 8
+Finding optimal size of population for dimension: 20
+
+Trying 5: @(1953.933510)
+Trying 7: *****
+mean: 14366.800000
+
+Trying 6: @(0.014019)Optimal size for dimension 20 is 7
+Finding optimal size of population for dimension: 25
+
+Trying 5: @(12760.145080)
+Trying 7: **#(0.002812)
+Trying 9: *****
+mean: 33849.000000
+
+Trying 8: ***#(0.000002)Optimal size for dimension 25 is 9
+Finding optimal size of population for dimension: 5
+
+Trying 5: *****
+mean: 3602.000000
+
+Trying 4: #(0.000001)Optimal size for dimension 5 is 5
+Finding optimal size of population for dimension: 10
+
+Trying 5: *****
+mean: 13151.000000
+
+Trying 4: *****
+mean: 7869.600000
+Optimal size for dimension 10 is 4
+Finding optimal size of population for dimension: 15
+
+Trying 5: **#(0.000000)
+Trying 7: *****
+mean: 42088.200000
+
+Trying 6: *****
+mean: 39253.200000
+Optimal size for dimension 15 is 6
+Finding optimal size of population for dimension: 20
+
+Trying 5: ****#(0.000000)
+Trying 7: *****
+mean: 89773.600000
+
+Trying 6: *****
+mean: 60428.400000
+Optimal size for dimension 20 is 6
+Finding optimal size of population for dimension: 25
+
+Trying 5: #(0.000000)
+Trying 7: *****
+mean: 266336.000000
+
+Trying 6: ****#(0.000000)Optimal size for dimension 25 is 7
+Finding optimal size of population for dimension: 5
+
+Trying 5: *****
+mean: 199.000000
+
+Trying 4: **@(0.000000)Optimal size for dimension 5 is 5
+Finding optimal size of population for dimension: 10
+
+Trying 5: @(0.000000)
+Trying 7: *****
+mean: 14565.600000
+
+Trying 6: ****@(0.000000)Optimal size for dimension 10 is 7
+Finding optimal size of population for dimension: 15
+
+Trying 5: *#(0.000000)
+Trying 7: #(0.000000)
+Trying 9: #(0.000000)
+Trying 11: #(0.000000)
+Trying 13: *#(0.000000)
+Trying 15: #(0.000000)
+Trying 17: #(0.000000)
+Trying 19: #(0.000000)
+Trying 21: #(0.000000)
+Trying 23: #(0.000000)
+Trying 25: *#(0.000000)
+Trying 27: #(0.000000)
+Trying 29: #(0.000000)Finding optimal size of population for dimension: 20
+
+Trying 5: #(0.000000)
+Trying 7: #(0.000001)
+Trying 9: #(0.000002)
+Trying 11: #(0.000000)
+Trying 13: #(0.000000)
+Trying 15: #(0.000001)
+Trying 17: #(0.000000)
+Trying 19: #(0.000001)
+Trying 21: #(0.000000)
+Trying 23: #(0.000000)
+Trying 25: #(0.000000)
+Trying 27: #(0.000000)
+Trying 29: #(0.000001)Finding optimal size of population for dimension: 25
+
+Trying 5: #(0.000001)
+Trying 7: #(0.000000)
+Trying 9: #(0.000003)
+Trying 11: #(0.000000)
+Trying 13: #(0.000000)
+Trying 15: #(0.000001)
+Trying 17: #(0.000000)
+Trying 19: #(0.000000)
+Trying 21: #(0.000000)
+Trying 23: #(0.000000)
+Trying 25: #(0.000000)
+Trying 27: #(0.000001)
+Trying 29: #(0.000001)Finding optimal size of population for dimension: 5
+
+Trying 5: @(15.449241)
+Trying 7: #(2.984877)
+Trying 9: #(0.994959)
+Trying 11: #(1.989918)
+Trying 13: *#(0.994959)
+Trying 15: *#(0.579192)
+Trying 17: ****#(0.994959)
+Trying 19: #(0.994959)
+Trying 21: *****
+mean: 20550.600000
+
+Trying 20: *****
+mean: 20436.000000
+Optimal size for dimension 5 is 20
+Finding optimal size of population for dimension: 10
+
+Trying 5: @(15.275738)
+Trying 7: #(7.885753)
+Trying 9: #(2.772789)
+Trying 11: #(3.033032)
+Trying 13: #(1.989918)
+Trying 15: #(0.995474)
+Trying 17: #(0.994959)
+Trying 19: #(0.994959)
+Trying 21: #(0.168251)
+Trying 23: #(1.989918)
+Trying 25: #(0.994959)
+Trying 27: *****
+mean: 358349.400000
+
+Trying 26: *****
+mean: 295380.800000
+Optimal size for dimension 10 is 26
+Finding optimal size of population for dimension: 15
+
+Trying 5: @(44.626559)
+Trying 7: #(266.270843)
+Trying 9: #(10.166290)
+Trying 11: #(1.989918)
+Trying 13: #(5.969754

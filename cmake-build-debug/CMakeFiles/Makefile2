@@ -94,12 +94,12 @@ clean: CMakeFiles/BcProject.dir/clean
 CMakeFiles/BcProject.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BcProject.dir/build.make CMakeFiles/BcProject.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BcProject.dir/build.make CMakeFiles/BcProject.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target BcProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/voracvoj/BcProject/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target BcProject"
 .PHONY : CMakeFiles/BcProject.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BcProject.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/voracvoj/BcProject/cmake-build-debug/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/voracvoj/BcProject/cmake-build-debug/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/BcProject.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/voracvoj/BcProject/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/BcProject.dir/rule

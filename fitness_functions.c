@@ -16,31 +16,13 @@ double oneMax(Chromosome* ch) {
     return fabs(ret);
 }
 
-double ellipticFunction(int start, Chromosome* ch) {
-    if (start >= DIMENSION) return 0;
-
-    double sum = 0;
-    double product = 1;
-    for (int i = start; i < start + size_of_fraction; ++i) {
-        if (i >= DIMENSION) break;
-        //sum += ch->vector[i] / 10;
-
-        product *= ch->vector[i];
-    }
-    //return fabs(product);
-    return fabs(sum + product);
-}
-
-double myBenchMarkFunction(Chromosome* ch) {
-
-    int num_of_fractions = DIMENSION / size_of_fraction;
-
+double sphere(Chromosome* ch) {
     double result = 0;
-
-    for (int i = 0; i < num_of_fractions + 1; ++i) {
-        result += ellipticFunction(i * size_of_fraction, ch);
+    for (int i = 0; i < DIMENSION; ++i) {
+        result += pow(ch->vector[i], 2);
     }
-    return fabs(result);
+
+    return result;
 }
 
 double* makeRotatedVector(Chromosome* ch, int start, int size) {
@@ -115,9 +97,41 @@ double SoREB(Chromosome* ch) {
 
 }
 
+double Michalewicz(Chromosome* ch) {
+    double result = 0;
+    for (int i = 0; i < DIMENSION; ++i) {
+        result += -sin(ch->vector[i]) * pow(sin((i + 1) * pow(ch->vector[i], 2) / /*M_PI*/ acos(-1)), 20);
+    }
+    return fabs(result);
+}
 
+double Rastrigin(Chromosome* ch) {
+    double result = 10 * DIMENSION;
+    for (int i = 0; i < DIMENSION; ++i) {
+        result += pow(ch->vector[i], 2) - 10 * cos(2 * /*M_PI*/acos(-1) * ch->vector[i]);
+    }
+    return fabs(result);
+}
 
+double Rosenbrock(Chromosome* ch) {
+    double result = 0;
+    for (int i = 0; i < DIMENSION - 1; ++i) {
+        result += 100 * pow(ch->vector[i + 1] - pow(ch->vector[i], 2), 2) + pow(1 - ch->vector[i], 2);
+    }
+    return result;
+}
 
+double OSoREB(Chromosome* ch) {
+    double result = SoREB(ch);
 
+    for (int i = size_of_fraction; i < DIMENSION; i += size_of_fraction) {
+        if (i >= DIMENSION) break;
+        double* vector = makeRotatedVector(ch, i-1, 2);
+        double tmp = ellipsoid(vector, 2);
+        free(vector);
+        result += tmp;
+    }
 
+    return result;
+}
 
